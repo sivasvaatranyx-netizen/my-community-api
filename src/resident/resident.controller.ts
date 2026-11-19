@@ -40,18 +40,18 @@ export class ResidentController {
 
   // ----- Visitors -----
   @Post('visitors')
-  preApproveVisitor(@CurrentUser() user: AuthUser, @Body() dto: CreateVisitorDto) {
+  async preApproveVisitor(@CurrentUser() user: AuthUser, @Body() dto: CreateVisitorDto) {
     const resident = this.residents.findOne(user.id);
     return this.visitors.create(resident, dto, 'PRE_APPROVED');
   }
 
   @Get('visitors')
-  listVisitors(@CurrentUser() user: AuthUser) {
+  async listVisitors(@CurrentUser() user: AuthUser) {
     return this.visitors.listForResident(user.id);
   }
 
   @Patch('visitors/:id/decision')
-  decideVisitor(
+  async decideVisitor(
     @CurrentUser() user: AuthUser,
     @Param('id') id: string,
     @Body() dto: VisitorDecisionDto,

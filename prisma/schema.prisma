@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum VisitorStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CHECKED_IN
+  CHECKED_OUT
+}
+
+enum VisitorSource {
+  PRE_APPROVED
+  WALK_IN
+}
+
+/// Shared visitor record used by resident pre-approvals and security walk-ins.
+/// tenantId is a development placeholder until society membership resolution is wired in.
+model Visit {
+  id          String        @id @default(cuid())
+  tenantId    String        @default("demo-tenant") @map("tenant_id")
+  residentId  String        @map("resident_id")
+  flat        String
+  name        String        @map("visitor_name")
+  phone       String
+  purpose     String
+  passCode    String        @map("pass_code")
+  status      VisitorStatus @default(PENDING)
+  source      VisitorSource
+  expectedAt  DateTime?     @map("expected_at")
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+
+  @@unique([tenantId, passCode])
+  @@index([tenantId, status, createdAt])
+  @@index([tenantId, residentId, createdAt])
+  @@map("visit")
+}
+
+
+model OutboxEvent {
+  id          String   @id @default(cuid())
+  tenantId    String   @map("tenant_id")
+  type        String
+  payload     Json
+  createdAt   DateTime @default(now()) @map("created_at")
+  publishedAt DateTime? @map("published_at")
+
+  @@index([publishedAt, createdAt])
+  @@map("outbox_event")
+}

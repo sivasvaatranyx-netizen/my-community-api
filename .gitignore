@@ -2,3 +2,7 @@ node_modules
 dist
 .env
 *.log
+
+# Prisma generated client / local environment
+.env
+node_modules/

@@ -36,9 +36,9 @@ export class SecurityController {
 
   /** Guard logs a visitor with no pre-approval; the resident is notified to approve/reject. */
   @Post('visitors/walk-in')
-  walkIn(@Body() dto: WalkInVisitorDto) {
+  async walkIn(@Body() dto: WalkInVisitorDto) {
     const resident = this.residents.findByFlat(dto.flat);
-    const visitor = this.visitors.create(
+    const visitor = await this.visitors.create(
       resident,
       { name: dto.name, phone: dto.phone, purpose: dto.purpose },
       'WALK_IN',
@@ -57,26 +57,26 @@ export class SecurityController {
   }
 
   @Get('visitors/expected')
-  expected() {
-    return this.visitors.listAll().filter((v) => v.status === VisitorStatus.APPROVED);
+  async expected() {
+    return (await this.visitors.listAll()).filter((v) => v.status === VisitorStatus.APPROVED);
   }
 
   @Get('visitors/inside')
-  inside() {
-    return this.visitors.listAll().filter((v) => v.status === VisitorStatus.CHECKED_IN);
+  async inside() {
+    return (await this.visitors.listAll()).filter((v) => v.status === VisitorStatus.CHECKED_IN);
   }
 
   // ----- Gate operations -----
 
   @Post('visitors/:id/check-in')
-  checkIn(@CurrentUser() guard: AuthUser, @Param('id') id: string, @Body() dto: GateActionDto) {
-    const visitor = this.visitors.findOne(id);
+  async checkIn(@CurrentUser() guard: AuthUser, @Param('id') id: string, @Body() dto: GateActionDto) {
+    const visitor = await this.visitors.findOne(id);
     if (visitor.status !== VisitorStatus.APPROVED) {
       throw new BadRequestException(`Cannot check in a visitor with status ${visitor.status}`);
     }
     if (dto.gateId) this.gates.assertCanUse(dto.gateId, 'ENTRY');
 
-    this.visitors.setStatus(id, VisitorStatus.CHECKED_IN);
+    await this.visitors.setStatus(id, VisitorStatus.CHECKED_IN);
     this.pubsub.publish(Topics.VISITOR_CHECKED_IN, {
       visitorId: visitor.id,
       residentId: visitor.residentId,
@@ -86,14 +86,14 @@ export class SecurityController {
   }
 
   @Post('visitors/:id/check-out')
-  checkOut(@CurrentUser() guard: AuthUser, @Param('id') id: string, @Body() dto: GateActionDto) {
-    const visitor = this.visitors.findOne(id);
+  async checkOut(@CurrentUser() guard: AuthUser, @Param('id') id: string, @Body() dto: GateActionDto) {
+    const visitor = await this.visitors.findOne(id);
     if (visitor.status !== VisitorStatus.CHECKED_IN) {
       throw new BadRequestException(`Cannot check out a visitor with status ${visitor.status}`);
     }
     if (dto.gateId) this.gates.assertCanUse(dto.gateId, 'EXIT');
 
-    this.visitors.setStatus(id, VisitorStatus.CHECKED_OUT);
+    await this.visitors.setStatus(id, VisitorStatus.CHECKED_OUT);
     return this.gateLog.add(id, 'CHECK_OUT', guard.id, dto.gateId, dto.vehicleNumber);
   }
 

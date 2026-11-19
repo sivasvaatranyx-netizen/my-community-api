@@ -151,3 +151,28 @@ gcloud run deploy my-community-api --source . --region asia-south1 --allow-unaut
 | Payments | `PaymentGatewayService` always succeeds | Razorpay / PayU SDK + webhook verification |
 | Files | not implemented | Cloud Storage (documents, images, receipts) |
 | Logs / metrics | JSON logs + in-memory counters | Cloud Logging / Monitoring / Trace |
+
+## Visitor persistence (Prisma + PostgreSQL)
+
+Visitor records are owned by `ResidentModule` through `VisitorsService`. Both resident pre-approval endpoints and guard endpoints call this service, so they read/write the same PostgreSQL `visit` table. `SecurityController` remains the HTTP entry point for guard operations; it does not access Prisma directly.
+
+### Configure the database
+
+1. Copy `.env.example` to `.env` and set `DATABASE_URL` to your PostgreSQL database. For the local Docker PostgreSQL setup using host port `5433`, use:
+   `postgresql://postgres:YOUR_PASSWORD@localhost:5433/aatranyx?schema=public`
+2. Install dependencies: `npm install`
+3. Generate Prisma Client: `npx prisma generate`
+4. Apply the checked-in migration: `npx prisma migrate deploy`
+5. Start the API: `npm run start:dev`
+
+The migration creates the `visit` and `outbox_event` tables, status/source enums, indexes, and PostgreSQL row-level security policies. Visitor creation and its `VISITOR_CREATED` outbox event are committed in the same database transaction. Visitor queries set `app.tenant_id` transaction-locally before accessing the table.
+
+### Important tenancy boundary
+
+This repository's resident and role data are still demo/in-memory scaffolding. Therefore `demo-tenant` is currently used as a temporary tenant context so the visitor persistence task can run end-to-end. Replace it with the active society membership resolved from verified authentication before supporting multiple societies. In production, use a dedicated non-superuser database role for the application; PostgreSQL superusers bypass row-level security. The current `x-role` / `x-user-id` headers are demo authentication only and must not be treated as production identity.
+
+### Visitor request flow
+
+`Guard App → SecurityController → VisitorsService (ResidentModule) → PrismaService → PostgreSQL`
+
+Resident pre-approval uses the same `VisitorsService` and `visit` table. Check-in and check-out status changes use conditional database updates to avoid processing the same state transition twice. Gate log storage and resident/guard identity records remain in-memory in this scaffold and are outside this visitor-table persistence change.

@@ -1,0 +1,97 @@
+warning: in the working copy of '.dockerignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.env.example', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Dockerfile', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'nest-cli.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/admin.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/admin.module.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/config/app-config.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/config/app-config.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/config/app-settings.types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/config/dto/update-app-config.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/dto/update-complaint-status.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/reports/reports.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/reports/reports.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/users/dto/create-user.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/users/dto/update-role.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/users/user.types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/users/users.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/admin/users/users.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app.module.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/common/current-user.decorator.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/common/permissions.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/common/role.enum.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/common/roles.decorator.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/common/roles.guard.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/dto/register-token.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/dto/send-notification.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/external/payment-gateway.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/fcm/fcm.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/fcm/fcm.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/integration.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/integration.module.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/notification.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/pubsub/event-handlers.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/pubsub/pubsub.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/tasks/tasks.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/telemetry/audit.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/telemetry/logging.interceptor.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/telemetry/telemetry.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/telemetry/telemetry.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/integration/webhook.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/amenities/amenities.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/amenities/amenities.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/amenities/amenity.types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/amenities/dto/book-amenity.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/amenities/dto/create-amenity.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/amenities/dto/set-active.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/dto/create-complaint.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/dto/create-notice.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/dto/create-resident.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/dto/create-visitor.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/dto/update-profile.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/dto/visitor-decision.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/payments/dto/create-invoice.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/payments/dto/pay-invoice.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/payments/payment.types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/payments/payments.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/payments/payments.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/resident.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/resident.module.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/resident.types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/services/complaints.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/services/notices.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/services/residents.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/resident/services/visitors.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/dto/gate-action.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/dto/verify-pass.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/dto/walk-in.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/gate-log.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/gates/dto/update-gate-status.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/gates/gate.types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/gates/gates.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/gates/gates.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/incidents/dto/create-incident.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/incidents/dto/update-incident-status.dto.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/incidents/incident.types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/incidents/incidents.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/incidents/incidents.service.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/security.controller.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/security/security.module.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tsconfig.build.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+ .env.example                              |   1 [32m+[m
+ .gitignore                                |   4 [32m+[m
+ README.md                                 |  25 [32m++[m
+ package-lock.json                         | 444 [32m+++++++++++++++++++++++++++++[m[31m-[m
+ package.json                              |  11 [32m+[m[31m-[m
+ src/admin/reports/reports.service.ts      |   8 [32m+[m[31m-[m
+ src/resident/resident.controller.ts       |   6 [32m+[m[31m-[m
+ src/resident/resident.module.ts           |   3 [32m+[m[31m-[m
+ src/resident/services/visitors.service.ts | 196 [32m++++++++++[m[31m---[m
+ src/security/security.controller.ts       |  24 [32m+[m[31m-[m
+ 10 files changed, 656 insertions(+), 66 deletions(-)

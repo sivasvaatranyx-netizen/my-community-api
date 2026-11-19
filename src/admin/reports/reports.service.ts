@@ -22,8 +22,8 @@ export class ReportsService {
     private readonly incidents: IncidentsService,
   ) {}
 
-  overview() {
-    const visitors = this.visitors.listAll();
+  async overview() {
+    const visitors = await this.visitors.listAll();
     const invoices = this.payments.listAll();
     return {
       residents: this.residents.findAll().length,
@@ -38,8 +38,8 @@ export class ReportsService {
     };
   }
 
-  visitorsReport() {
-    const visitors = this.visitors.listAll();
+  async visitorsReport() {
+    const visitors = await this.visitors.listAll();
     return {
       total: visitors.length,
       byStatus: this.countBy(visitors, (v) => v.status),
